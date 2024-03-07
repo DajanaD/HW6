@@ -9,7 +9,7 @@ CREATE TABLE groups (
 DROP TABLE IF EXISTS students;
 CREATE TABLE students (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name VARCHAR(100) UNIQUE NOT NULL,
+    students_name VARCHAR(100) UNIQUE NOT NULL,
     group_id INTEGER,
     FOREIGN KEY (group_id) REFERENCES groups(id)
         ON DELETE CASCADE
@@ -20,7 +20,7 @@ CREATE TABLE students (
 DROP TABLE IF EXISTS professors;
 CREATE TABLE professors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name VARCHAR(100) UNIQUE NOT NULL
+    professors_name VARCHAR(100) UNIQUE NOT NULL
 );
 
 -- Створення таблиці предметів
