@@ -1,5 +1,7 @@
---Знайти список курсів, які відвідує студент
-SELECT s.student_name, sub.subject_name
-FROM Students s
-INNER JOIN Grades gr ON s.student_id = gr.student_id
-INNER JOIN Subjects sub ON gr.subject_id = sub.subject_id;
+--Список курсів, які певному студенту читає певний викладач
+SELECT sub.subject_name
+FROM students s
+JOIN grades g ON s.id = g.student_id
+JOIN subjects sub ON g.subject_id = sub.id
+JOIN professors p ON sub.professor_id = p.id
+WHERE s.students_name = 'David Frost' AND p.professors_name = 'Daniel Miller';

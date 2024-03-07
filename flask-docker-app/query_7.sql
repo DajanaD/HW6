@@ -1,7 +1,6 @@
---Знайти оцінки студентів у окремій групі з певного предмета
-SELECT s.student_name, gr.grade
-FROM Students s
-INNER JOIN Grades gr ON s.student_id = gr.student_id
-INNER JOIN Subjects sub ON gr.subject_id = sub.subject_id
-INNER JOIN Groups g ON s.group_id = g.group_id
-WHERE g.group_name = 'Your_group_name' AND sub.subject_name = 'Your_subject_name';
+--Знайти середній бал, який ставить певний викладач зі своїх предметів
+SELECT p.professors_name, AVG(CAST(g.grade AS FLOAT)) AS average_grade
+FROM grades g
+JOIN subjects sub ON g.subject_id = sub.id
+JOIN professors p ON sub.professor_id = p.id
+GROUP BY p.id;

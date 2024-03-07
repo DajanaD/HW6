@@ -1,7 +1,8 @@
---Список курсів, які певному студенту читає певний викладач
-SELECT s.student_name, sub.subject_name
-FROM Students s
-INNER JOIN Grades gr ON s.student_id = gr.student_id
-INNER JOIN Subjects sub ON gr.subject_id = sub.subject_id
-INNER JOIN Teachers t ON sub.teacher_id = t.teacher_id
-WHERE s.student_name = 'Your_student_name' AND t.teacher_name = 'Your_teacher_name';
+--Знайти середній бал у групах з певного предмета
+SELECT g.group_name, AVG(CAST(g.grade AS FLOAT)) AS average_grade
+FROM students s
+JOIN grades g ON s.id = g.student_id
+JOIN groups g ON s.group_id = g.id
+JOIN subjects sub ON g.subject_id = sub.id
+WHERE sub.subject_name = 'Armed forces operational officer'
+GROUP BY g.id;
