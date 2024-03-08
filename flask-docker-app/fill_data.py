@@ -77,7 +77,7 @@ def insert_data_to_db(groups, professors, students, subjects, grades):
         sql_to_subjects = """INSERT INTO subjects(subject_name, professor_id)
                                VALUES (?,?)"""
         cur.executemany(sql_to_subjects, subjects)
-        sql_to_grades = """INSERT INTO grades(date_received, grade, student_id, subject_id)
+        sql_to_grades = """INSERT INTO grades( grade, date_received, student_id, subject_id)
                                VALUES (?,?,?,?)"""
         cur.executemany(sql_to_grades, grades)
         

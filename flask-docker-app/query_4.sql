@@ -2,4 +2,4 @@
 SELECT sub.subject_name
 FROM subjects sub
 JOIN professors p ON sub.professor_id = p.id
-WHERE p.professors_name = 'Daniel Miller';
+WHERE p.professors_name = 'Elizabeth Quinn DDS';

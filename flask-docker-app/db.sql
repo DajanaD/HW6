@@ -40,7 +40,7 @@ CREATE TABLE grades (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     student_id INTEGER,
     subject_id INTEGER,
-    grade VARCHAR(1000) UNIQUE NOT NULL,
+    grade VARCHAR(1000),
     date_received DATE,
     FOREIGN KEY (student_id) REFERENCES students(id)
         ON DELETE CASCADE
